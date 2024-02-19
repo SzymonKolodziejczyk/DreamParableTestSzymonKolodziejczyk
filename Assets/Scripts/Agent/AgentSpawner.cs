@@ -10,13 +10,39 @@ public class AgentSpawner : MonoBehaviour
     public float spawnDelay = 2f; // Delay between each spawn
     [Range(2, 60)]
     public int maxSpawnCount = 30; // Maximum number of spawned agents
+    [Range(3, 5)]
+    public int initialSpawnCount = 3; // Number of initial objects to spawn
 
     private int currentSpawnCount = 0; // Current number of spawned agents
 
     private void Start()
     {
+        // Spawn initial objects
+        for (int i = 0; i < initialSpawnCount; i++)
+        {
+            SpawnObject();
+        }
+
         // Start spawning agents
-        InvokeRepeating("SpawnAgent", 0f, spawnDelay);
+        InvokeRepeating("SpawnAgent", spawnDelay, spawnDelay);
+    }
+
+    private void SpawnObject()
+    {
+        // Randomly select an agent prefab from the array
+        GameObject randomAgentPrefab = agentPrefabs[Random.Range(0, agentPrefabs.Length)];
+
+        // Calculate a random position on the x-z plane near the spawn point
+        Vector3 randomPosition = new Vector3(spawnPoint.position.x + Random.Range(-5f, 5f), spawnPoint.position.y, spawnPoint.position.z + Random.Range(-5f, 5f));
+
+        // Instantiate the agent at the random position
+        GameObject spawnedAgent = Instantiate(randomAgentPrefab, randomPosition, spawnPoint.rotation);
+
+        // Increase the current spawn count
+        currentSpawnCount++;
+
+        // Start a coroutine to check if the agent is destroyed
+        StartCoroutine(CheckAgentDestroyed(spawnedAgent));
     }
 
     private void SpawnAgent()
