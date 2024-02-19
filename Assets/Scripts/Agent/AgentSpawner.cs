@@ -6,7 +6,9 @@ public class AgentSpawner : MonoBehaviour
 {
     public GameObject[] agentPrefabs; // Array of agent prefabs to spawn
     public Transform spawnPoint; // The spawn point for agents
+    [Range(2, 6)]
     public float spawnDelay = 2f; // Delay between each spawn
+    [Range(2, 60)]
     public int maxSpawnCount = 30; // Maximum number of spawned agents
 
     private int currentSpawnCount = 0; // Current number of spawned agents
