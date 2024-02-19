@@ -5,34 +5,36 @@ using UnityEngine;
 public class AgentMovement : MonoBehaviour
 {
     public float moveSpeed = 2f; // Speed at which the enemy moves
-    public float minMoveDistance = 1f; // Minimum distance to move before selecting a new random position
 
-    private Vector3 targetPosition; // The current target position for the enemy
+    private Vector3 moveDirection; // The current movement direction for the enemy
 
     private void Start()
     {
-        // Set the initial target position
-        targetPosition = GetRandomPosition();
+        // Set the initial movement direction
+        moveDirection = GetRandomDirection();
     }
 
     private void Update()
     {
-        // Move towards the target position
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+        // Move in the current direction
+        Vector3 newPosition = transform.position + moveDirection * moveSpeed * Time.deltaTime;
+        newPosition.y = transform.position.y; // Freeze the y-axis position
+        transform.position = newPosition;
 
-        // Check if the enemy has reached the target position
-        if (Vector3.Distance(transform.position, targetPosition) < minMoveDistance)
+        // Check if the enemy has collided with a wall or other object
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, moveDirection, out hit, 1f))
         {
-            // Select a new random position
-            targetPosition = GetRandomPosition();
+            // Reflect the movement direction
+            moveDirection = Vector3.Reflect(moveDirection, hit.normal);
         }
     }
 
-    private Vector3 GetRandomPosition()
+    private Vector3 GetRandomDirection()
     {
-        // Generate a random position within a specified range
-        Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f), 0f, Random.Range(-10f, 10f));
+        // Generate a random direction
+        Vector3 randomDirection = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(-1f, 1f)).normalized;
 
-        return randomPosition;
+        return randomDirection;
     }
 }
