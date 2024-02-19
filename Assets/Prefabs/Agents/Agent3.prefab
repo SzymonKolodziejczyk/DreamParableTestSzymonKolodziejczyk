@@ -119,6 +119,7 @@ GameObject:
   - component: {fileID: 7636723141409434479}
   - component: {fileID: 6389205099049849364}
   - component: {fileID: 734555385731933035}
+  - component: {fileID: 1507073096752020514}
   m_Layer: 0
   m_Name: Agent3
   m_TagString: Agent
@@ -182,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  currentHealth: 0
 --- !u!114 &734555385731933035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +197,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageAmount: 1
+--- !u!114 &1507073096752020514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146326333354458909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b709817d86ce849bdd0b38f316e287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  minMoveDistance: 1
