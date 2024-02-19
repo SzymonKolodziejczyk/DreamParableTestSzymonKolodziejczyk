@@ -31,9 +31,21 @@ public class AgentSpawner : MonoBehaviour
         GameObject randomAgentPrefab = agentPrefabs[Random.Range(0, agentPrefabs.Length)];
 
         // Instantiate the agent at the spawn point
-        Instantiate(randomAgentPrefab, spawnPoint.position, spawnPoint.rotation);
+        GameObject spawnedAgent = Instantiate(randomAgentPrefab, spawnPoint.position, spawnPoint.rotation);
 
         // Increase the current spawn count
         currentSpawnCount++;
+
+        // Start a coroutine to check if the agent is destroyed
+        StartCoroutine(CheckAgentDestroyed(spawnedAgent));
+    }
+
+    private IEnumerator CheckAgentDestroyed(GameObject agent)
+    {
+        // Wait until the agent is destroyed
+        yield return new WaitUntil(() => agent == null);
+
+        // Decrease the current spawn count
+        currentSpawnCount--;
     }
 }

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TakeDamageOnCollision : MonoBehaviour
@@ -15,9 +17,11 @@ public class TakeDamageOnCollision : MonoBehaviour
         // Check if the collision is with another agent
         if (collision.gameObject.CompareTag("Agent"))
         {
-            // Reduce health of both agents
+            // Reduce health of the current agent
             healthManager.TakeDamage(damageAmount);
-            collision.gameObject.GetComponent<HealthManager>().TakeDamage(damageAmount);
+
+            // Uncomment the line below if you want the other agent to take damage as well
+            // collision.gameObject.GetComponent<HealthManager>().TakeDamage(damageAmount);
         }
     }
 }
