@@ -8,6 +8,7 @@ public class TakeDamageOnCollision : MonoBehaviour
     public int damageAmount = 1;
     private bool canTakeDamage = true;
     public float damageCooldown = 1f;
+    public ParticleSystem hitParticles; // Reference to the Particle System
 
     private void Start()
     {
@@ -19,6 +20,9 @@ public class TakeDamageOnCollision : MonoBehaviour
         // Check if the collision is with another agent and can take damage
         if (collision.gameObject.CompareTag("Agent") && canTakeDamage)
         {
+            // Activate the Particle System
+            hitParticles.Play();
+
             // Reduce health of the current agent
             healthManager.TakeDamage(damageAmount);
 
