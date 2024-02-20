@@ -46,8 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentPrefabs:
   - {fileID: 8283635538946845497, guid: d26c69041cd282548b9d95e3eb97a948, type: 3}
-  - {fileID: 5542784397186108446, guid: a6d937bbe9f251c4991b892f9638e530, type: 3}
-  - {fileID: 5146326333354458909, guid: c393a2ca17693334b81d99690b7f9258, type: 3}
+  - {fileID: 8008759218341274989, guid: a6d937bbe9f251c4991b892f9638e530, type: 3}
+  - {fileID: 5676965118017250569, guid: c393a2ca17693334b81d99690b7f9258, type: 3}
   spawnPoint: {fileID: 2160114083663157391}
   spawnDelay: 2
   maxSpawnCount: 30
