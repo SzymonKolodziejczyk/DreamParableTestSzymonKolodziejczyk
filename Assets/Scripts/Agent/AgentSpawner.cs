@@ -11,38 +11,29 @@ public class AgentSpawner : MonoBehaviour
     [Range(2, 60)]
     public int maxSpawnCount = 30; // Maximum number of spawned agents
     [Range(3, 5)]
-    public int initialSpawnCount = 3; // Number of initial objects to spawn
-
+    public int initialSpawnCount = 3; // Number of initial agents to spawn
+    public string[] possibleNames; // Array of possible names for agents
     private int currentSpawnCount = 0; // Current number of spawned agents
 
     private void Start()
     {
-        // Spawn initial objects
+        // Spawn initial agents
         for (int i = 0; i < initialSpawnCount; i++)
         {
-            SpawnObject();
+            SpawnAgent();
         }
 
         // Start spawning agents
-        InvokeRepeating("SpawnAgent", spawnDelay, spawnDelay);
+        StartCoroutine(SpawnAgentsRoutine());
     }
 
-    private void SpawnObject()
+    private IEnumerator SpawnAgentsRoutine()
     {
-        // Randomly select an agent prefab from the array
-        GameObject randomAgentPrefab = agentPrefabs[Random.Range(0, agentPrefabs.Length)];
-
-        // Calculate a random position on the x-z plane near the spawn point
-        Vector3 randomPosition = new Vector3(spawnPoint.position.x + Random.Range(-5f, 5f), spawnPoint.position.y, spawnPoint.position.z + Random.Range(-5f, 5f));
-
-        // Instantiate the agent at the random position
-        GameObject spawnedAgent = Instantiate(randomAgentPrefab, randomPosition, spawnPoint.rotation);
-
-        // Increase the current spawn count
-        currentSpawnCount++;
-
-        // Start a coroutine to check if the agent is destroyed
-        StartCoroutine(CheckAgentDestroyed(spawnedAgent));
+        while (currentSpawnCount < maxSpawnCount)
+        {
+            yield return new WaitForSeconds(spawnDelay);
+            SpawnAgent();
+        }
     }
 
     private void SpawnAgent()
@@ -56,8 +47,15 @@ public class AgentSpawner : MonoBehaviour
         // Randomly select an agent prefab from the array
         GameObject randomAgentPrefab = agentPrefabs[Random.Range(0, agentPrefabs.Length)];
 
-        // Instantiate the agent at the spawn point
-        GameObject spawnedAgent = Instantiate(randomAgentPrefab, spawnPoint.position, spawnPoint.rotation);
+        // Calculate a random position on the x-z plane near the spawn point
+        Vector3 randomPosition = spawnPoint.position + new Vector3(Random.Range(-5f, 5f), 0f, Random.Range(-5f, 5f));
+
+        // Instantiate the agent at the random position
+        GameObject spawnedAgent = Instantiate(randomAgentPrefab, randomPosition, spawnPoint.rotation);
+
+        // Assign a random name to the spawned agent
+        string randomName = GetUniqueRandomName();
+        spawnedAgent.name = randomName;
 
         // Increase the current spawn count
         currentSpawnCount++;
@@ -73,5 +71,29 @@ public class AgentSpawner : MonoBehaviour
 
         // Decrease the current spawn count
         currentSpawnCount--;
+    }
+
+    private string GetUniqueRandomName()
+    {
+        // Shuffle the possible names array
+        for (int i = 0; i < possibleNames.Length - 1; i++)
+        {
+            int randomIndex = Random.Range(i, possibleNames.Length);
+            string temp = possibleNames[i];
+            possibleNames[i] = possibleNames[randomIndex];
+            possibleNames[randomIndex] = temp;
+        }
+
+        // Find a unique name that hasn't been used yet
+        foreach (string name in possibleNames)
+        {
+            if (!GameObject.Find(name))
+            {
+                return name;
+            }
+        }
+
+        // If all names are already used, return a default name
+        return "Agent";
     }
 }
