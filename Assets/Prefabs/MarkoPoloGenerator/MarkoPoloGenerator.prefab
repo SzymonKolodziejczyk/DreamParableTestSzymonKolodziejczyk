@@ -247,6 +247,7 @@ MonoBehaviour:
   scrollView: {fileID: 2750754174069633560}
   content: {fileID: 843305588753913714}
   padding: 10
+  numLines: 100
 --- !u!1 &4485657082906412707
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ public class MarkoPoloGenerator : MonoBehaviour
     public ScrollRect scrollView;
     public GameObject content;
     public float padding = 10f;
+    public int numLines = 100; // Number of lines to generate
 
     private void Start()
     {
@@ -20,8 +21,6 @@ public class MarkoPoloGenerator : MonoBehaviour
 
     private void GenerateLines()
     {
-        int numLines = 100; // Number of lines to generate
-
         StringBuilder generatedText = new StringBuilder();
 
         for (int i = 1; i <= numLines; i++)
@@ -43,8 +42,6 @@ public class MarkoPoloGenerator : MonoBehaviour
                 generatedText.AppendLine(i.ToString());
             }
         }
-
-        outputText.SetText(generatedText.ToString());
 
         // Set the generated text as the content of the scroll view
         outputText.text = generatedText.ToString();
