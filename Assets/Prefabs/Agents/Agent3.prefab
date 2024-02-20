@@ -228,6 +228,7 @@ MonoBehaviour:
   infoOverlay: {fileID: 4316488169476439109}
   nameText: {fileID: 3778732533678926358}
   hpText: {fileID: 7792440424401494821}
+  agentSelectionCircle: {fileID: 4755165000287523977}
 --- !u!1001 &2548500439388145773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -289,6 +290,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+--- !u!1 &4755165000287523977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7107712627994418404, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+  m_PrefabInstance: {fileID: 2548500439388145773}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8675751028440667691 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}

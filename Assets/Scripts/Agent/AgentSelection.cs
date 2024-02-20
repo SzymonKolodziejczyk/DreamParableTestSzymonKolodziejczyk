@@ -9,6 +9,7 @@ public class AgentSelection : MonoBehaviour
     public GameObject infoOverlay; // Reference to the information overlay UI
     public TextMeshProUGUI nameText; // Reference to the UI text field for the agent name
     public TextMeshProUGUI hpText; // Reference to the UI text field for the agent HP
+    public GameObject agentSelectionCircle; // Reference to the agent you want to appear/disappear
 
     private bool isSelected = false; // Flag to track if the agent is selected
     private HealthManager healthManager; // Reference to the HealthManager component
@@ -36,6 +37,9 @@ public class AgentSelection : MonoBehaviour
                     // Deselect the agent and hide the information overlay
                     isSelected = false;
                     infoOverlay.SetActive(false);
+
+                    // Hide the circle agent
+                    agentSelectionCircle.SetActive(false);
                 }
             }
         }
@@ -48,6 +52,9 @@ public class AgentSelection : MonoBehaviour
 
         // Show or hide the information overlay based on the selection state
         infoOverlay.SetActive(isSelected);
+
+        // Show or hide the circle agent based on the selection state
+        agentSelectionCircle.SetActive(isSelected);
 
         // Update the UI text fields with the agent name and HP
         if (isSelected)

@@ -185,7 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 3
   currentHealth: 0
-  hpText: {fileID: 6751174716121618104}
 --- !u!114 &4892115418847257623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,6 +226,7 @@ MonoBehaviour:
   infoOverlay: {fileID: 753101675703486936}
   nameText: {fileID: 424591658810318731}
   hpText: {fileID: 6751174716121618104}
+  circleObject: {fileID: 4923824358147774786}
 --- !u!1001 &1898592873310162077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -389,6 +389,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+--- !u!1 &4923824358147774786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7107712627994418404, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+  m_PrefabInstance: {fileID: 2807812744755676582}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9065527165893598176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
