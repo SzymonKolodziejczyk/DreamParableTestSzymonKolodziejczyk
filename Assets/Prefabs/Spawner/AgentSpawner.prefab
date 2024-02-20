@@ -51,3 +51,31 @@ MonoBehaviour:
   spawnPoint: {fileID: 2160114083663157391}
   spawnDelay: 2
   maxSpawnCount: 30
+  initialSpawnCount: 3
+  possibleNames:
+  - Adam
+  - Bertha
+  - Celina
+  - Damien
+  - Elisa
+  - Figaro
+  - Gunter
+  - Hilda
+  - Isaac
+  - Joshua
+  - Klara
+  - Lumina
+  - Maya
+  - Noel
+  - Olivia
+  - Pablo
+  - Quinn
+  - Rosalia
+  - Simon
+  - Thomas
+  - Uriel
+  - Volke
+  - Winona
+  - Xander
+  - Yvonne
+  - Zenon
