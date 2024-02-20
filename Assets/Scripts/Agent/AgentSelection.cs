@@ -11,6 +11,35 @@ public class AgentSelection : MonoBehaviour
     public TextMeshProUGUI hpText; // Reference to the UI text field for the agent HP
 
     private bool isSelected = false; // Flag to track if the agent is selected
+    private HealthManager healthManager; // Reference to the HealthManager component
+
+    private void Start()
+    {
+        healthManager = GetComponent<HealthManager>(); // Get the reference to the HealthManager component
+    }
+
+    private void Update()
+    {
+        // Check for mouse clicks outside the agent agent
+        if (isSelected && Input.GetMouseButtonDown(0))
+        {
+            // Create a ray from the camera to the mouse position
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            // Perform a raycast and check if it hits any collider
+            if (Physics.Raycast(ray, out hit))
+            {
+                // Check if the hit agent is not the agent itself
+                if (hit.transform.gameObject != gameObject)
+                {
+                    // Deselect the agent and hide the information overlay
+                    isSelected = false;
+                    infoOverlay.SetActive(false);
+                }
+            }
+        }
+    }
 
     private void OnMouseDown()
     {
@@ -29,12 +58,12 @@ public class AgentSelection : MonoBehaviour
 
     private void UpdateUI()
     {
-        // Get the agent name and HP
+        // Get the agent name and current health
         string agentName = gameObject.name;
-        int agentHP = GetComponent<HealthManager>().currentHealth;
+        int currentHealth = healthManager.currentHealth;
 
         // Update the UI text fields
         nameText.text = "Name: " + agentName;
-        hpText.text = "HP: " + agentHP.ToString();
+        hpText.text = "HP: " + currentHealth.ToString();
     }
 }
