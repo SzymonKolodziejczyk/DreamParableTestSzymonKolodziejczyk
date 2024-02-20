@@ -228,7 +228,7 @@ MonoBehaviour:
   infoOverlay: {fileID: 4316488169476439109}
   nameText: {fileID: 3778732533678926358}
   hpText: {fileID: 7792440424401494821}
-  agentSelectionCircle: {fileID: 4755165000287523977}
+  UnitSelection: {fileID: 4755165000287523977}
 --- !u!1001 &2548500439388145773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -238,16 +238,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 4535830392848131315}
     m_Modifications:
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalRotation.w

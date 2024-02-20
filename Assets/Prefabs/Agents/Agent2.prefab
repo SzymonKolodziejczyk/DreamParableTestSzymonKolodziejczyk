@@ -34,9 +34,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6489026223568435036}
   - {fileID: 2092824057873536632}
   - {fileID: 557199253475668244}
+  - {fileID: 6489026223568435036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7690482398239178442
@@ -121,7 +121,7 @@ MonoBehaviour:
   infoOverlay: {fileID: 2824838409268099999}
   nameText: {fileID: 2928511527373286860}
   hpText: {fileID: 8138189006161847551}
-  agentSelectionCircle: {fileID: 7176044276387689982}
+  UnitSelection: {fileID: 7176044276387689982}
 --- !u!1 &8602260875339241406
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,12 +236,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 8629511753097641097}
     m_Modifications:
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6573111672532622918, guid: bf138e555834e5f4db8b9d008a2832ce, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class HealthManager : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
+
+    public event Action<int> OnHealthChanged; // Event to notify health changes
 
     private void Start()
     {
@@ -21,6 +24,9 @@ public class HealthManager : MonoBehaviour
         {
             Die();
         }
+
+        // Notify the UI about the health change
+        OnHealthChanged?.Invoke(currentHealth);
     }
 
     private void Die()
