@@ -17,6 +17,26 @@ public class AgentSelection : MonoBehaviour
     private void Start()
     {
         healthManager = GetComponent<HealthManager>(); // Get the reference to the HealthManager component
+
+        if (infoOverlay == null)
+        {
+            Debug.LogWarning("Info Overlay reference not assigned.");
+        }
+
+        if (nameText == null)
+        {
+            Debug.LogWarning("Name Text reference not assigned.");
+        }
+
+        if (hpText == null)
+        {
+            Debug.LogWarning("HP Text reference not assigned.");
+        }
+
+        if (UnitSelection == null)
+        {
+            Debug.LogWarning("Unit Selection reference not assigned.");
+        }
     }
 
     private void Update()
